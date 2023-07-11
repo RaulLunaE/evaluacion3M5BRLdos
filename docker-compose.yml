@@ -1,15 +1,14 @@
 version: "3"
 services:
-  mongo-spring:
-    image: raulluna/mongo-spring
+  mongodb:
+    image: raulluna/spring-mongo:1.0
     ports:
-      - "2002:27017"
+      - 8081:8080
     volumes:
       - ./data:/data/db
-
   mongo:
     image: mongo
     ports:
-      - "27018:27017"
+      - 2002:27017
     volumes:
       - ./data:/data/db
