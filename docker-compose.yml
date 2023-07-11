@@ -1,7 +1,7 @@
 version: "3"
 services:
   api-spring:
-    image: raulluna/chumbi_container:1
+    image: raulluna/evaluacioncontenedor:1
     build: .
     networks:
       - net-cloud
