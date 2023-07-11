@@ -1,0 +1,15 @@
+version: "3"
+services:  
+  mongodb-msclient-id:
+    image: mongo:latest
+    container_name: mongodb-msclient-dockercompose
+    ports:
+      - 2002:2002      
+  spring-msclient-id:
+    image: spring-amigo:1.0
+    container_name: "spring-msclient-dockercompose"
+    ports:
+      - 8080:8080
+    links:
+      - mongodb-msclient-id
+    
