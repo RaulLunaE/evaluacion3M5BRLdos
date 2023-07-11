@@ -9,9 +9,9 @@ services:
     depends_on:
       - mongo_container
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo_container:27017/mongobaseeva
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo_container:27017/mongeva
       - SPRING_DATA_MONGODB_USERNAME=test
-      - SPRING_DATA_MONGODB_PASSWORD=secret
+      - SPRING_DATA_MONGODB_PASSWORD=passwordvalue
     ports:
       - 8080:8080
 
@@ -23,9 +23,9 @@ services:
     ports:
       - 2023:27017
     environment:
-      - MONGO_INITDB_DATABASE=mongobaseeva
-      - MONGO_INITDB_ROOT_USERNAME=usuario
-      - MONGO_INITDB_ROOT_PASSWORD=secret
+      - MONGO_INITDB_DATABASE=mongeva
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=passwordvalue
 
 networks:
   net-cloud:
