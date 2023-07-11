@@ -1,31 +1,8 @@
 version: "3"
 services:
-  api-spring:
-    image: raulluna/evaluacioncontenedor:1
-    build: .
-    networks:
-      - net-cloud
-    container_name: mongevaluacion
-    depends_on:
-      - mongo_container
-    environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo_container:27017/mongeva
-      - SPRING_DATA_MONGODB_USERNAME=test
-      - SPRING_DATA_MONGODB_PASSWORD=passwordvalue
+  mongodb:
+    image: raulluna/mongoEVALUACION:1.0
     ports:
-      - 8080:8080
-
-  mongo_container:
-    image: mongo:latest
-    networks:
-      - net-cloud
-    container_name: mongo_container
-    ports:
-      - 2023:27017
-    environment:
-      - MONGO_INITDB_DATABASE=mongeva
-      - MONGO_INITDB_ROOT_USERNAME=test
-      - MONGO_INITDB_ROOT_PASSWORD=passwordvalue
-
-networks:
-  net-cloud:
+      - 2002:27017
+    volumes:
+      - ./data:/data/db
