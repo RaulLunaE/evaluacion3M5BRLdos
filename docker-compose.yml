@@ -1,7 +1,7 @@
 version: "3"
 services:
   mongodb:
-    image: raulluna/mongoEVALUACION:1.0
+    image: raulluna/spring-mongo:1.0
     ports:
       - 2002:27017
     volumes:
