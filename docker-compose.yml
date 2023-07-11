@@ -1,15 +1,31 @@
 version: "3"
-services:  
-  mongodb-msclient-id:
-    image: mongo:latest
-    container_name: mongoevaluacio
-    ports:
-      - 2002:2002      
-  spring-msclient-id:
-    image: spring-amigo:1.0
-    container_name: "springevaluacion"
+services:
+  api-spring:
+    image: raulluna/chumbi_container:1
+    build: .
+    networks:
+      - net-cloud
+    container_name: mongevaluacion
+    depends_on:
+      - mongo_container
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo_container:27017/mongobaseeva
+      - SPRING_DATA_MONGODB_USERNAME=test
+      - SPRING_DATA_MONGODB_PASSWORD=secret
     ports:
       - 8080:8080
-    links:
-      - mongodb-msclient-id
-    
+
+  mongo_container:
+    image: mongo:latest
+    networks:
+      - net-cloud
+    container_name: mongo_container
+    ports:
+      - 2023:27017
+    environment:
+      - MONGO_INITDB_DATABASE=mongobaseeva
+      - MONGO_INITDB_ROOT_USERNAME=usuario
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+
+networks:
+  net-cloud:
