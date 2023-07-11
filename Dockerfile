@@ -5,4 +5,4 @@ FROM openjdk:17-jdk-alpine
 COPY target/evaluacion3m5b-0.0.1-SNAPSHOT.jar evaluacion3m5b-0.0.1-SNAPSHOT.jar
 
 #se ejecuta el microservicio
-ENTRYPOINT ["java","-jar","/evaluacion3m5b-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/evaluacion3M5B-0.0.1-SNAPSHOT.jar"]
