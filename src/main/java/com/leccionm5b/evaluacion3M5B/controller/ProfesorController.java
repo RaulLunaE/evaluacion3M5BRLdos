@@ -33,15 +33,12 @@ public class ProfesorController {
 
     @GetMapping("/listar")
     public ResponseEntity<List<Profesor>> listarProductos() {
-        return new ResponseEntity<>(profeService.findByAll(),
-                HttpStatus.OK);
+        return new ResponseEntity<>(profeService.findByAll(),HttpStatus.OK);
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Profesor> crearProducto(
-            @RequestBody Profesor p) {
-        return new ResponseEntity<>(profeService.save(p),
-                HttpStatus.CREATED);
+    public ResponseEntity<Profesor> crearProducto(@RequestBody Profesor p) {
+        return new ResponseEntity<>(profeService.save(p),HttpStatus.CREATED);
     }
 
     @PutMapping("/actualizar/{id}")
